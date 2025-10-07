@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data Scientist Portfolio</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Space+Grotesk%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#38dafa",
+              "background-light": "#f5f8f8",
+              "background-dark": "#0f1f23",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      @keyframes typing {
+        from {
+          width: 0
+        }
+        to {
+          width: 100%
+        }
+      }
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent
+        }
+        50% {
+          border-color: #38dafa;
+        }
+      }
+      .typing-effect {
+        overflow: hidden;
+        border-right: .15em solid #38dafa;
+        white-space: nowrap;
+        margin: 0 auto;
+        animation:
+          typing 3.5s steps(40, end),
+          blink-caret .75s step-end infinite;
+      }
+      body {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="relative min-h-screen w-full">
+<div class="absolute inset-0 z-0 h-full w-full bg-background-dark bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+<div class="relative z-10 flex h-full flex-col">
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-primary/20 bg-background-dark/50 px-10 py-4 backdrop-blur-sm">
+<div class="mx-auto flex max-w-7xl items-center justify-between">
+<div class="flex items-center gap-4">
+<svg class="h-6 w-6 text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM4 8.5L12 13L20 8.5V15.5L12 20L4 15.5V8.5ZM12 4.5L18.5 8L12 11.5L5.5 8L12 4.5Z"></path>
+</svg>
+<h2 class="text-xl font-bold text-white">Alex Chen</h2>
+</div>
+<nav class="hidden items-center gap-8 md:flex">
+<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="#">About</a>
+<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="#">Projects</a>
+<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="#">Skills</a>
+<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="#">Contact</a>
+</nav>
+<button class="hidden rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary ring-1 ring-inset ring-primary transition-all hover:bg-primary hover:text-background-dark hover:shadow-[0_0_15px_#38dafa] md:block">
+<span>Download Resume</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 items-center justify-center pt-24 pb-12">
+<div class="container mx-auto flex flex-col items-center justify-center gap-12 px-4 text-center md:flex-row md:text-left">
+<div class="flex-1 space-y-6">
+<div class="flex flex-col items-center md:items-start">
+<h1 class="typing-effect text-4xl font-bold text-white md:text-6xl">Alex Chen</h1>
+<p class="mt-2 text-lg text-gray-300 md:text-xl">Data Scientist: Turning data into actionable insights</p>
+</div>
+<div class="flex flex-wrap justify-center gap-4 md:justify-start">
+<button class="flex min-w-[160px] items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-bold text-background-dark shadow-[0_0_15px_rgba(56,218,250,0.4)] transition-all hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(56,218,250,0.6)]">
+<span>VIEW PROJECTS</span>
+</button>
+<button class="flex min-w-[160px] items-center justify-center rounded-lg bg-transparent px-6 py-3 text-base font-bold text-primary ring-2 ring-inset ring-primary transition-all hover:bg-primary/10 hover:shadow-[0_0_15px_rgba(56,218,250,0.3)]">
+<span>DOWNLOAD RESUME</span>
+</button>
+</div>
+</div>
+<div class="relative flex-1">
+<div class="aspect-square w-full max-w-md rounded-full border-2 border-dashed border-primary/30 bg-primary/5 p-4">
+<div class="flex h-full w-full items-center justify-center">
+<p class="text-primary/50">Interactive 3D Model</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>
