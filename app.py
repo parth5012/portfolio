@@ -20,9 +20,11 @@ def resume():
     flash("Redirecting you to the download link!!")
     return redirect("https://drive.google.com/file/d/18wDQQyzVUJF5xzhxYksk1bkdkqTtgNGB/view?usp=sharing")
 
+
 @app.route('/about')
 def about():
     return render_template('about.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
