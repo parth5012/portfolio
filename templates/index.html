@@ -71,33 +71,42 @@
 <svg class="h-6 w-6 text-primary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM4 8.5L12 13L20 8.5V15.5L12 20L4 15.5V8.5ZM12 4.5L18.5 8L12 11.5L5.5 8L12 4.5Z"></path>
 </svg>
-<h2 class="text-xl font-bold text-white">Alex Chen</h2>
+<h2 class="text-xl font-bold text-white">Parth</h2>
 </div>
 <nav class="hidden items-center gap-8 md:flex">
-<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="#">About</a>
-<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="#">Projects</a>
+<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="/about">About</a>
+<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="/projects">Projects</a>
 <a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="#">Skills</a>
-<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="#">Contact</a>
+<a class="text-sm font-medium text-gray-300 transition-colors hover:text-primary hover:drop-shadow-[0_0_5px_#38dafa]" href="contact">Contact</a>
 </nav>
-<button class="hidden rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary ring-1 ring-inset ring-primary transition-all hover:bg-primary hover:text-background-dark hover:shadow-[0_0_15px_#38dafa] md:block">
-<span>Download Resume</span>
-</button>
+<form action="/resume">
+
+  <button class="hidden rounded-lg bg-primary/20 px-4 py-2 text-sm font-bold text-primary ring-1 ring-inset ring-primary transition-all hover:bg-primary hover:text-background-dark hover:shadow-[0_0_15px_#38dafa] md:block">
+    <span>Download Resume</span>
+  </button>
+</form>
 </div>
 </header>
 <main class="flex flex-1 items-center justify-center pt-24 pb-12">
 <div class="container mx-auto flex flex-col items-center justify-center gap-12 px-4 text-center md:flex-row md:text-left">
 <div class="flex-1 space-y-6">
 <div class="flex flex-col items-center md:items-start">
-<h1 class="typing-effect text-4xl font-bold text-white md:text-6xl">Alex Chen</h1>
+<h1 class="typing-effect text-4xl font-bold text-white md:text-6xl">Parth</h1>
 <p class="mt-2 text-lg text-gray-300 md:text-xl">Data Scientist: Turning data into actionable insights</p>
 </div>
 <div class="flex flex-wrap justify-center gap-4 md:justify-start">
-<button class="flex min-w-[160px] items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-bold text-background-dark shadow-[0_0_15px_rgba(56,218,250,0.4)] transition-all hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(56,218,250,0.6)]">
-<span>VIEW PROJECTS</span>
-</button>
-<button class="flex min-w-[160px] items-center justify-center rounded-lg bg-transparent px-6 py-3 text-base font-bold text-primary ring-2 ring-inset ring-primary transition-all hover:bg-primary/10 hover:shadow-[0_0_15px_rgba(56,218,250,0.3)]">
-<span>DOWNLOAD RESUME</span>
-</button>
+  <form action="/projects">
+
+    <button class="flex min-w-[160px] items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-bold text-background-dark shadow-[0_0_15px_rgba(56,218,250,0.4)] transition-all hover:bg-primary/90 hover:shadow-[0_0_25px_rgba(56,218,250,0.6)]">
+      <span>VIEW PROJECTS</span>
+    </button>
+  </form>
+  <form action="/resume">
+
+    <button class="flex min-w-[160px] items-center justify-center rounded-lg bg-transparent px-6 py-3 text-base font-bold text-primary ring-2 ring-inset ring-primary transition-all hover:bg-primary/10 hover:shadow-[0_0_15px_rgba(56,218,250,0.3)]">
+      <span>DOWNLOAD RESUME</span>
+    </button>
+  </form>
 </div>
 </div>
 <div class="relative flex-1">
