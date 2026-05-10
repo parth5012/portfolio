@@ -49,7 +49,7 @@ def skills():
 @app.route('/resume')
 def resume():
     flash("Redirecting you to the resume download link!", "info")
-    return redirect("https://drive.google.com/file/d/18wDQQyzVUJF5xzhxYksk1bkdkqTtgNGB/view?usp=sharing")
+    return redirect("https://drive.google.com/file/d/1rcqw895KCUNjJ_-UOVGxEbJAgBO4PWrm/view?usp=sharing")
 
 
 # ── Error handlers ────────────────────────────────────────────────────────────
