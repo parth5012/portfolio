@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>
+  /* Rendered to static/og.png at 1200x630 by tools/make-og.mjs */
+  @font-face { font-family: 'JBMono'; src: local('JetBrains Mono NL'); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px;
+    background: #0a1628;
+    color: #cbd5e1;
+    font-family: 'Space Grotesk', 'DejaVu Sans', sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(56,218,250,0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56,218,250,0.055) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .glow {
+    position: absolute; width: 620px; height: 620px; border-radius: 50%;
+    background: rgba(56,218,250,0.10);
+    filter: blur(110px);
+    right: -160px; top: -160px;
+  }
+  .glow2 {
+    position: absolute; width: 420px; height: 420px; border-radius: 50%;
+    background: rgba(37,99,235,0.12);
+    filter: blur(100px);
+    left: -140px; bottom: -160px;
+  }
+  .wrap { position: relative; padding: 0 78px; max-width: 880px; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 19px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(56,218,250,0.85);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .dot { width: 11px; height: 11px; border-radius: 50%; background: #4ade80; }
+  h1 {
+    font-size: 68px; line-height: 1.06; font-weight: 700; color: #ffffff;
+    margin: 30px 0 0;
+  }
+  h1 .accent { color: #38dafa; display: block; }
+  p.claim {
+    font-size: 27px; line-height: 1.5; color: #94a3b8;
+    margin: 26px 0 0; max-width: 800px;
+  }
+  .proof {
+    margin-top: 34px;
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'JetBrains Mono', monospace; font-size: 19px;
+    color: rgba(56,218,250,0.9);
+    border: 1px solid rgba(56,218,250,0.3); background: rgba(56,218,250,0.07);
+    border-radius: 999px; padding: 11px 24px;
+  }
+  .name {
+    position: absolute; right: 78px; bottom: 56px;
+    font-family: 'JetBrains Mono', monospace; font-size: 22px; color: #64748b;
+  }
+  .name b { color: #38dafa; font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> Parth Chawla</div>
+    <h1>AI systems that keep working<span class="accent">on messy real data.</span></h1>
+    <p class="claim">Eval sets, retries, kill switches and cost logs &mdash; plus an honest list of what still breaks.</p>
+    <div class="proof">/reliability &middot; the full list</div>
+  </div>
+
+  <!-- SWAP POINT: once you own a custom domain (Week 9), replace the handle
+       below with it and re-run `node tools/make-og.mjs`. Do not put a domain
+       here that you do not actually control. -->
+  <div class="name"><b>github.com/parth5012</b></div>
+</body>
+</html>

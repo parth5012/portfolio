@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}About — Parth Chawla{% endblock %}
-{% block meta_description %}Parth Chawla is an AI Engineer and Data Science Specialist building agentic AI systems, LLM-powered applications, and scalable backends. SWOC & ECWoC participant, GDGoC collaborator.{% endblock %}
+{% block meta_description %}Parth Chawla builds AI systems that keep working on messy real data. Third-year B.Tech CSE (AI & DS), open-source contributor, focused on evaluation, failure isolation and cost control.{% endblock %}
 
 {% block extra_styles %}
 .skill-bar-track {
@@ -103,7 +103,7 @@
           </div>
           <div class="text-center">
             <h2 class="text-xl font-bold text-white">Parth Chawla</h2>
-            <p class="text-sm text-primary/80 font-mono mt-1">AI Engineer</p>
+            <p class="text-sm text-primary/80 font-mono mt-1">AI systems &amp; reliability</p>
             <p class="text-xs text-gray-500 mt-2">📍 India</p>
           </div>
           <div class="w-full border-t border-white/5 pt-4 flex flex-col gap-2.5">
@@ -173,13 +173,26 @@
         <div class="rounded-xl border border-primary/15 bg-surface-card p-7 card-hover">
           <h3 class="text-xs font-mono text-primary/70 tracking-widest uppercase mb-4">// Bio</h3>
           <p class="text-gray-300 leading-relaxed">
-            I'm an AI Engineer and Data Science Specialist focused on building <span class="text-primary">agentic AI architectures</span>, <span class="text-primary">LLM-powered applications</span>, and scalable backend systems. My work spans the full stack — from designing intelligent agent pipelines with LangChain to building production-grade APIs with FastAPI and Django.
+            I'm a third-year B.Tech CSE (AI &amp; DS) student who builds
+            <span class="text-primary">AI systems that keep working on real data</span>. My interest is
+            the unglamorous half of the problem: writing eval sets that include the awkward cases,
+            quarantining bad output instead of passing it downstream, pricing every call, and
+            naming what still breaks.
           </p>
           <p class="text-gray-400 leading-relaxed mt-4">
-            I'm passionate about the intersection of software engineering and machine learning: crafting systems that don't just predict, but <em>act</em>. I'm actively contributing to open-source programs, engaging with the Google Developer community, and building projects that push the boundaries of what AI can automate.
+            I got here by building rather than studying: an LLM classifier with a job card and an
+            eval set, a containerised task API with real token auth, a scraper that validates every
+            record it writes, and a six-step prompt ladder kept verbatim so the comparisons are
+            checkable. Each of those is on the <a href="/projects" class="text-primary hover:underline">work page</a>,
+            with source links.
+          </p>
+          <p class="text-gray-400 leading-relaxed mt-4">
+            I care about the failure modes more than the demo. The honest list of what breaks in my
+            own work is published at <a href="/reliability" class="text-primary hover:underline">/reliability</a>,
+            because knowing where your system cracks is the part clients actually pay for.
           </p>
           <p class="mt-4">
-            <span class="tl-badge">🎯 Seeking AI Engineering Internship · Summer 2026</span>
+            <span class="tl-badge">{{ site.action_label }}</span>
           </p>
         </div>
 

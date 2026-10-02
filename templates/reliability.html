@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Where it breaks — Parth Chawla{% endblock %}
+{% block meta_description %}An honest list of what still breaks in this portfolio and the work behind it, split into what I am fixing now and what I am knowingly leaving alone.{% endblock %}
+{% block og_title %}Where it breaks — Parth Chawla{% endblock %}
+{% block og_description %}Fix-now items and named known limitations, published rather than hidden.{% endblock %}
+
+{% block extra_styles %}
+.break-row {
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: #111d2e;
+  padding: 20px 22px;
+  transition: border-color 0.3s ease;
+}
+.break-row:hover { border-color: rgba(56,218,250,0.3); }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px;
+}
+.pill-fixnow { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
+.pill-known { background: rgba(100,116,139,0.1); color: #94a3b8; border: 1px solid rgba(100,116,139,0.25); }
+{% endblock %}
+
+{% block content %}
+<div class="min-h-[calc(100vh-80px)] px-6 py-16">
+  <div class="mx-auto max-w-3xl">
+
+    <header class="mb-12">
+      <p class="text-xs font-mono text-primary/60 tracking-[0.3em] uppercase mb-3">// CHECKPOINT EVIDENCE</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-white">Where it breaks</h1>
+      <p class="mt-4 text-gray-400 leading-relaxed">
+        Anyone can demo the happy path. This is the list I found by attacking my own work:
+        empty inputs, garbage inputs, double submits, missing config, and the two cases where
+        a plausible answer is still wrong. Nothing here is hidden, because a limitation you
+        have named is a limitation you can plan around.
+      </p>
+    </header>
+
+    <div class="flex flex-col gap-4">
+      {% for item in breaks %}
+      {% set label, tone = labels[item.status] %}
+      <div class="break-row">
+        <div class="flex flex-wrap items-center gap-3 mb-2">
+          <span class="pill {% if item.status == 'fix-now' %}pill-fixnow{% else %}pill-known{% endif %}">{{ label }}</span>
+        </div>
+        <p class="text-white font-semibold mb-1.5">{{ item.what }}</p>
+        <p class="text-gray-400 text-sm leading-relaxed">{{ item.note }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <section class="mt-12 rounded-2xl border border-primary/20 bg-primary/5 p-8">
+      <p class="beat-label mb-3">// how I found these</p>
+      <div class="prose-case">
+        <p>
+          Not by reading the code. By trying to break it: submitting the contact form empty,
+          then with garbage, then twice as fast as a person can click; setting the classifier
+          to stub mode and reading what the eval actually scored; injecting a deliberately
+          broken URL into the scraper and checking whether the other fifty-nine records still
+          landed; and removing the environment variable the contact form needs to see whether
+          it would tell the truth or pretend.
+        </p>
+        <p>
+          The last one is the reason this page exists. An earlier version of this site's contact
+          form faked a success message and dropped every message on the floor. Now, with no
+          webhook configured, it returns an honest error instead. Same for the classifier:
+          the live-model score is listed as missing rather than quietly replaced by the stub
+          number, which would have looked better and been a lie.
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-8 rounded-2xl border border-white/5 bg-surface-card/40 p-8">
+      <p class="beat-label mb-3">// what I will fix next</p>
+      <div class="prose-case">
+        <p>
+          Recording the classifier's live-model score, then extending the eval set so urgency is
+          scored and not just returned. Until both are done this case is honestly described as
+          measured on category only, which is what the reliability page says it is.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</div>
+{% endblock %}
