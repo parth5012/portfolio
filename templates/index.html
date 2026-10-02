@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Parth Chawla — AI Engineer & Data Science Specialist{% endblock %}
-{% block meta_description %}Portfolio of Parth Chawla — AI Engineer building agentic AI architectures, LLM-powered applications, and scalable backend systems. Seeking AI Engineering Internships for Summer 2026.{% endblock %}
+{% block title %}Parth Chawla — AI systems that keep working on real data{% endblock %}
+{% block meta_description %}{{ site.claim }} Eval sets, retries, kill switches and cost logs, plus an honest list of what still breaks.{% endblock %}
+{% block og_title %}Parth Chawla — AI systems that keep working on real data{% endblock %}
+{% block og_description %}{{ site.claim }}{% endblock %}
 
 {% block extra_styles %}
 @keyframes typing {
@@ -45,18 +47,11 @@
   border: 1px solid rgba(56,218,250,0.15);
   border-radius: 14px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  line-height: 1.75;
-  padding: 28px;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  padding: 26px;
   position: relative;
   overflow: hidden;
-}
-.code-block::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(56,218,250,0.5), transparent);
 }
 .code-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 .scroll-line {
@@ -67,97 +62,81 @@
 {% endblock %}
 
 {% block content %}
-<section class="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden">
 
-  <!-- Background orbs -->
+<!-- ===== HERO: the one claim ===== -->
+<section class="relative min-h-[calc(100vh-80px)] flex items-center overflow-hidden">
   <div class="hero-orb w-[500px] h-[500px] bg-primary/6 top-0 right-0 translate-x-1/3 -translate-y-1/3"></div>
   <div class="hero-orb w-72 h-72 bg-blue-600/5 bottom-10 left-0 -translate-x-1/4" style="animation-delay:-3s;"></div>
 
   <div class="container mx-auto px-6 max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16">
 
-    <!-- Left: Text Content -->
-    <div class="flex flex-col gap-8">
-
-      <!-- Status badge -->
+    <!-- Left: the claim -->
+    <div class="flex flex-col gap-7">
       <div class="inline-flex items-center gap-2 w-fit rounded-full border border-primary/25 bg-primary/5 px-4 py-1.5">
         <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-        <span class="text-xs font-mono text-primary/80 tracking-wider">SEEKING AI ENGINEERING INTERNSHIP · SUMMER 2026</span>
+        <span class="text-xs font-mono text-primary/80 tracking-wider">OPEN TO A PILOT &middot; RELIABLE AI SYSTEMS</span>
       </div>
 
-      <!-- Headline -->
       <div>
         <p class="text-sm font-mono text-primary/60 tracking-widest uppercase mb-3">// Hello, I'm</p>
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
           <span class="typing-effect">Parth</span>
           <span class="block text-primary mt-1">Chawla</span>
         </h1>
-        <p class="mt-2 text-base font-mono text-gray-500 tracking-wide">AI Engineer &amp; Data Science Specialist</p>
-        <p class="mt-4 text-lg text-gray-400 leading-relaxed max-w-lg">
-          Building <span class="text-primary font-semibold">agentic AI architectures</span> and 
-          <span class="text-primary font-semibold">LLM-powered applications</span> — from scalable backend systems to intelligent ML pipelines.
-        </p>
       </div>
 
-      <!-- CTA Buttons -->
+      <!-- This is the claim. Everything else ladders up to it. -->
+      <p class="text-xl md:text-2xl text-white font-semibold leading-snug max-w-2xl">
+        {{ site.claim }}
+      </p>
+      <p class="text-base text-gray-400 leading-relaxed max-w-xl">
+        {{ site.proof }}
+      </p>
+
+      <!-- The one action, and two honest doors -->
       <div class="flex flex-wrap gap-4">
-        <a href="/projects" id="hero-cta-projects" class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-background-dark shadow-[0_0_20px_rgba(56,218,250,0.3)] transition-all hover:bg-primary-dark hover:shadow-[0_0_30px_rgba(56,218,250,0.5)] hover:-translate-y-0.5">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0l-7-7m7 7l-7 7"/></svg>
-          VIEW PROJECTS
+        <a href="/contact" class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-bold text-background-dark shadow-[0_0_20px_rgba(56,218,250,0.3)] transition-all hover:bg-primary-dark hover:shadow-[0_0_30px_rgba(56,218,250,0.5)] hover:-translate-y-0.5 font-mono">
+          {{ site.action_label }}
         </a>
-        <a href="/resume" id="hero-cta-resume" class="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/5 px-6 py-3 text-sm font-bold text-primary transition-all hover:bg-primary/15 hover:border-primary hover:shadow-[0_0_15px_rgba(56,218,250,0.2)] hover:-translate-y-0.5">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          DOWNLOAD RESUME
+        <a href="/projects" class="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/5 px-6 py-3 text-sm font-bold text-primary transition-all hover:bg-primary/15 hover:border-primary hover:shadow-[0_0_15px_rgba(56,218,250,0.2)] hover:-translate-y-0.5">
+          SEE THE WORK
         </a>
-        <a href="/about" id="hero-cta-about" class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/3 px-6 py-3 text-sm font-bold text-gray-400 transition-all hover:bg-white/8 hover:text-white hover:-translate-y-0.5">
-          ABOUT ME
+        <a href="/reliability" class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/3 px-6 py-3 text-sm font-bold text-gray-400 transition-all hover:bg-white/8 hover:text-white hover:-translate-y-0.5">
+          WHAT BREAKS
         </a>
       </div>
 
-      <!-- Stats row -->
+      <!-- Real numbers, from real runs -->
       <div class="grid grid-cols-3 gap-4 pt-2">
+        {% for value, label in stats %}
         <div class="stat-card text-center">
-          <p class="text-2xl font-bold text-primary font-mono">3</p>
-          <p class="text-xs text-gray-500 mt-1 tracking-wider uppercase">AI Projects</p>
+          <p class="text-2xl font-bold text-primary font-mono">{{ value }}</p>
+          <p class="text-xs text-gray-500 mt-1 tracking-wider uppercase">{{ label }}</p>
         </div>
-        <div class="stat-card text-center">
-          <p class="text-2xl font-bold text-primary font-mono">2</p>
-          <p class="text-xs text-gray-500 mt-1 tracking-wider uppercase">OSS Programs</p>
-        </div>
-        <div class="stat-card text-center">
-          <p class="text-2xl font-bold text-primary font-mono">10+</p>
-          <p class="text-xs text-gray-500 mt-1 tracking-wider uppercase">Technologies</p>
-        </div>
+        {% endfor %}
       </div>
     </div>
 
-    <!-- Right: Code Block Visual -->
+    <!-- Right: proof, not decoration -->
     <div class="relative hidden lg:block animate-float">
       <div class="code-block">
-        <!-- Window chrome -->
         <div class="flex items-center gap-2 mb-5 pb-4 border-b border-white/5">
           <span class="code-dot bg-red-500/80"></span>
           <span class="code-dot bg-yellow-500/80"></span>
           <span class="code-dot bg-green-500/80"></span>
-          <span class="ml-3 text-xs text-gray-600">parth_chawla.py</span>
+          <span class="ml-3 text-xs text-gray-600">what_breaks.txt</span>
         </div>
-        <div class="space-y-0.5">
-          <p><span class="text-blue-400">class</span> <span class="text-yellow-300">AIEngineer</span><span class="text-gray-400">:</span></p>
-          <p class="pl-6"><span class="text-blue-400">def</span> <span class="text-green-400">__init__</span><span class="text-gray-400">(self):</span></p>
-          <p class="pl-12 text-gray-400">self.name <span class="text-gray-500">=</span> <span class="text-orange-300">"Parth Chawla"</span></p>
-          <p class="pl-12 text-gray-400">self.focus <span class="text-gray-500">=</span> <span class="text-orange-300">"Agentic AI &amp; LLMs"</span></p>
-          <p class="pl-12 text-gray-400">self.stack <span class="text-gray-500">=</span> <span class="text-gray-400">{</span></p>
-          <p class="pl-20 text-orange-300">"langs"<span class="text-gray-500">:</span> <span class="text-gray-400">[</span><span class="text-orange-300">"Python"</span><span class="text-gray-400">,</span> <span class="text-orange-300">"Node.js"</span><span class="text-gray-400">,</span> <span class="text-orange-300">"C++"</span><span class="text-gray-400">],</span></p>
-          <p class="pl-20 text-orange-300">"ai"<span class="text-gray-500">:</span> <span class="text-gray-400">[</span><span class="text-orange-300">"LangChain"</span><span class="text-gray-400">,</span> <span class="text-orange-300">"LangSmith"</span><span class="text-gray-400">],</span></p>
-          <p class="pl-20 text-orange-300">"backend"<span class="text-gray-500">:</span> <span class="text-gray-400">[</span><span class="text-orange-300">"FastAPI"</span><span class="text-gray-400">,</span> <span class="text-orange-300">"Django"</span><span class="text-gray-400">],</span></p>
-          <p class="pl-20 text-orange-300">"devops"<span class="text-gray-500">:</span> <span class="text-gray-400">[</span><span class="text-orange-300">"Docker"</span><span class="text-gray-400">,</span> <span class="text-orange-300">"Redis"</span><span class="text-gray-400">]</span></p>
-          <p class="pl-12 text-gray-400">}</p>
-          <p class="mt-2 pl-6"><span class="text-blue-400">def</span> <span class="text-green-400">build</span><span class="text-gray-400">(self, idea):</span></p>
-          <p class="pl-12 text-gray-500"># Ship agentic systems that scale</p>
-          <p class="pl-12"><span class="text-blue-400">return</span> <span class="text-green-400">AgenticPipeline</span><span class="text-gray-400">(idea)</span></p>
-          <p class="mt-4 text-gray-500 text-xs">
-            <span class="text-primary/60">▶</span>
-            <span class="text-green-400/70"> Status:</span>
-            <span class="text-gray-400"> "Ready to ship ✓"</span>
+        <div class="space-y-1">
+          <p class="text-gray-500 text-xs font-mono mb-2">// named, not hidden</p>
+          <p><span class="text-amber-300">[fix-now]</span> <span class="text-gray-300">live-model eval score unrecorded</span></p>
+          <p><span class="text-amber-300">[fix-now]</span> <span class="text-gray-300">contact form needs CONTACT_WEBHOOK</span></p>
+          <p><span class="text-slate-400">[known]  </span> <span class="text-gray-300">urgency returned but never scored</span></p>
+          <p><span class="text-slate-400">[known]  </span> <span class="text-gray-300">scraper selectors tied to one markup</span></p>
+          <p><span class="text-slate-400">[known]  </span> <span class="text-gray-300">rate limit is per instance, in memory</span></p>
+          <p><span class="text-slate-400">[known]  </span> <span class="text-gray-300">no automated tests on the web layer</span></p>
+          <p class="pt-3 text-gray-600 text-xs">
+            <span class="text-primary/60">▸</span> <span class="text-green-400/70">the full list:</span>
+            <span class="text-gray-400"> /reliability</span>
           </p>
         </div>
       </div>
@@ -165,27 +144,127 @@
     </div>
 
   </div>
+</section>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2">
-    <span class="text-xs font-mono text-gray-600 tracking-widest">SCROLL</span>
-    <div class="scroll-line"></div>
+<!-- ===== METHOD STRIP: what I always do ===== -->
+<section class="border-y border-primary/8 bg-surface-card/50 py-8">
+  <div class="mx-auto max-w-7xl px-6">
+    <p class="text-xs font-mono text-primary/50 tracking-[0.3em] uppercase text-center mb-6">// the method behind the claim</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="text-center">
+        <p class="text-primary font-mono text-sm mb-1">01 &middot; EVALUATE</p>
+        <p class="text-gray-400 text-sm leading-relaxed">A written set of messy cases, including the ambiguous and hostile ones, scored on every change.</p>
+      </div>
+      <div class="text-center">
+        <p class="text-primary font-mono text-sm mb-1">02 &middot; ISOLATE FAILURE</p>
+        <p class="text-gray-400 text-sm leading-relaxed">Quarantine bad output instead of passing it on, and let one broken page cost one page.</p>
+      </div>
+      <div class="text-center">
+        <p class="text-primary font-mono text-sm mb-1">03 &middot; PRICE IT</p>
+        <p class="text-gray-400 text-sm leading-relaxed">Tokens, latency and retries logged per call, with a switch to turn the whole thing off.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ===== TECH STACK STRIP ===== -->
-<section class="border-y border-primary/8 bg-surface-card/50 py-5 overflow-hidden">
-  <div style="display:flex;gap:0;width:max-content;animation:marquee 25s linear infinite;">
-    {% set techs = ["Python","Node.js","C++","Java","R","Django","FastAPI","Next.js","LangChain","LangSmith","Docker","Celery","Redis","Git","NLP","MLOps","Time Series","Statistical Modeling","Python","Node.js","C++","Java","R","Django","FastAPI","Next.js","LangChain","LangSmith","Docker","Celery","Redis","Git","NLP","MLOps","Time Series","Statistical Modeling"] %}
-    {% for tech in techs %}
-      <span class="tag-badge mx-3 whitespace-nowrap">{{ tech }}</span>
-    {% endfor %}
+<!-- ===== FEATURED CASE: the proof ===== -->
+{% set hero = cases | selectattr('slug', 'equalto', 'classify') | first %}
+{% if hero %}
+<section class="px-6 py-20">
+  <div class="mx-auto max-w-7xl">
+    <div class="mb-10">
+      <p class="text-xs font-mono text-primary/60 tracking-[0.3em] uppercase mb-3">// the case that proves it</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">{{ hero.title }}</h2>
+      <p class="text-primary/70 font-mono text-sm mt-1">{{ hero.tagline }}</p>
+    </div>
+
+    <div class="project-card lg:flex-row" style="flex-direction:row; display:flex;">
+      <div class="project-body lg:w-3/5 p-8">
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">{{ hero.summary }}</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          {% for label, value in hero.facts %}
+          <div class="fact-tile">
+            <p class="text-lg font-bold text-primary font-mono">{{ value }}</p>
+            <p class="text-xs text-gray-500 mt-0.5">{{ label }}</p>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+          {% for tech in hero.stack %}<span class="tag-badge">{{ tech }}</span>{% endfor %}
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="/projects/{{ hero.slug }}" class="inline-flex items-center gap-2 rounded-lg bg-primary/10 border border-primary/25 px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/20 transition-all font-mono">
+            Read the case
+          </a>
+          <a href="{{ hero.source_url }}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg border border-white/10 px-4 py-2 text-sm font-semibold text-gray-400 hover:bg-white/5 hover:text-white transition-all font-mono">
+            Source
+          </a>
+        </div>
+      </div>
+
+      <div class="project-visual lg:w-2/5" style="background: linear-gradient(135deg, #0d1f35, #0a2040, #061525); min-height:280px;">
+        <div class="grid-lines"></div>
+        <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+        <div class="relative flex flex-col items-center gap-3 p-8">
+          <div class="w-20 h-20 rounded-2xl bg-primary/10 border border-primary/25 flex items-center justify-center animate-float" style="box-shadow:0 0 30px rgba(56,218,250,0.15);">
+            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <p class="text-xs font-mono text-primary/70 text-center leading-relaxed">
+            never invents a label<br>never returns free text<br>says "other" when unsure
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-<style>
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-</style>
+{% endif %}
+
+<!-- ===== MORE CASES ===== -->
+{% set rest = cases | rejectattr('slug', 'equalto', 'classify') | list %}
+{% if rest %}
+<section class="px-6 pb-20">
+  <div class="mx-auto max-w-7xl">
+    <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <p class="text-xs font-mono text-primary/60 tracking-[0.3em] uppercase mb-3">// the rest of the evidence</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Four more cases</h2>
+      </div>
+      <a href="/projects" class="text-primary font-mono text-sm hover:underline">All work →</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {% for case in rest %}
+      <a href="/projects/{{ case.slug }}" class="project-card p-6 block">
+        <p class="text-xs font-mono text-primary/60 mb-2">{{ case.title }}</p>
+        <p class="text-white font-semibold text-lg mb-1.5">{{ case.tagline }}</p>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">{{ case.summary }}</p>
+        <div class="flex flex-wrap gap-2">
+          {% for tech in case.stack[:3] %}<span class="tag-badge">{{ tech }}</span>{% endfor %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ===== CLOSING: the one action ===== -->
+<section class="px-6 pb-24">
+  <div class="mx-auto max-w-4xl text-center rounded-2xl border border-primary/20 bg-primary/5 p-12">
+    <p class="text-sm font-mono text-primary/70 tracking-widest uppercase mb-4">// {{ site.audience }}</p>
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+      If your automation has to survive real data, let's talk.
+    </h2>
+    <p class="text-gray-400 mb-8">
+      No pitch deck. Send me the messy case you cannot get working and I'll tell you what I'd measure first.
+    </p>
+    <a href="/contact" class="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-bold text-background-dark shadow-[0_0_20px_rgba(56,218,250,0.3)] hover:bg-primary-dark hover:-translate-y-0.5 transition-all font-mono">
+      {{ site.action_label }}
+    </a>
+    <p class="text-xs text-gray-600 font-mono mt-5">or email me directly at {{ site.email }}</p>
+  </div>
+</section>
+
 {% endblock %}

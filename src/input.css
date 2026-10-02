@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #0a1628;
+  color: #cbd5e1;
+  overflow-x: hidden;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(56, 218, 250, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 218, 250, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glow utilities */
+.text-glow {
+  text-shadow: 0 0 15px rgba(56, 218, 250, 0.6);
+}
+.border-glow {
+  box-shadow: 0 0 10px rgba(56, 218, 250, 0.2);
+}
+.border-glow-hover:hover {
+  box-shadow: 0 0 20px rgba(56, 218, 250, 0.4);
+  transition: box-shadow 0.3s;
+}
+
+/* Navbar */
+.nav-link {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #94a3b8;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #38dafa;
+  transition: width 0.25s;
+}
+.nav-link:hover {
+  color: #38dafa;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+.nav-link.active {
+  color: #38dafa;
+}
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Page entry animation */
+.page-content {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a1628;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 218, 250, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 218, 250, 0.6);
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(56, 218, 250, 0.15);
+  border-color: rgba(56, 218, 250, 0.5);
+}
+
+/* Mobile menu */
+#mobile-menu {
+  display: none;
+}
+#mobile-menu.open {
+  display: block;
+}
+
+/* Tag badge */
+.tag-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: rgba(56, 218, 250, 0.12);
+  color: #38dafa;
+  border: 1px solid rgba(56, 218, 250, 0.2);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Case card */
+.project-card {
+  background: #111d2e;
+  border: 1px solid rgba(56, 218, 250, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(56, 218, 250, 0.12);
+  border-color: rgba(56, 218, 250, 0.35);
+}
+
+/* Long-form prose, used by the case pages and the build story */
+.prose-case p {
+  color: #94a3b8;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+.prose-case p:last-child {
+  margin-bottom: 0;
+}
+.prose-case strong {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.beat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #38dafa;
+}
+
+.fact-tile {
+  background: rgba(17, 29, 46, 0.8);
+  border: 1px solid rgba(56, 218, 250, 0.12);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+/* Focus ring, so keyboard users can see where they are */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #38dafa;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-content {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,137 +1,95 @@
 {% extends "base.html" %}
-{% block title %}Blog & Notes — Parth Chawla{% endblock %}
-{% block meta_description %}Technical notes, statistical modeling write-ups, and AI engineering thoughts by Parth Chawla.{% endblock %}
+
+{% block title %}How I built this portfolio with AI — Parth Chawla{% endblock %}
+{% block meta_description %}The honest version: what AI did that I could not have done alone, and the one thing that broke and taught me to stop trusting a green tick.{% endblock %}
+{% block og_title %}How I built this portfolio with AI — Parth Chawla{% endblock %}
+{% block og_description %}One real win, one real limitation, and what I am fixing next.{% endblock %}
 
 {% block extra_styles %}
-.post-card {
-  background: #111d2e;
-  border: 1px solid rgba(56,218,250,0.1);
-  border-radius: 14px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-  text-decoration: none;
-  color: inherit;
-}
-.post-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(56,218,250,0.1);
-  border-color: rgba(56,218,250,0.3);
-}
-.post-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.post-cat {
-  font-size: 0.65rem; font-weight: 700; font-family: 'JetBrains Mono', monospace;
-  padding: 3px 9px; border-radius: 999px; letter-spacing: 0.1em;
-}
-.wip-overlay {
-  position: absolute; inset: 0; background: rgba(10,22,40,0.7);
-  backdrop-filter: blur(3px); border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity 0.3s;
-}
-.post-card:hover .wip-overlay { opacity: 1; }
+.post-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; color: #64748b; }
 {% endblock %}
 
 {% block content %}
-<div class="min-h-[calc(100vh-80px)] px-6 py-16">
-  <div class="mx-auto max-w-5xl">
+<div class="px-6 py-16">
+  <div class="mx-auto max-w-3xl">
 
-    <div class="mb-12 text-center">
-      <p class="text-xs font-mono text-primary/60 tracking-[0.3em] uppercase mb-3">// SECTION 05</p>
-      <h1 class="text-4xl md:text-5xl font-bold text-white">Technical Notes</h1>
-      <p class="mt-3 text-gray-500 max-w-lg mx-auto">Write-ups on statistical modeling, AI engineering, and open-source learnings.</p>
-    </div>
+    <a href="/" class="inline-flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-primary transition-colors mb-8">← Home</a>
 
-    <!-- Coming soon banner -->
-    <div class="mb-10 flex items-center gap-3 rounded-xl border border-yellow-500/20 bg-yellow-500/5 p-4">
-      <svg class="w-5 h-5 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      <p class="text-sm text-yellow-300/80 font-mono">Posts are being drafted — check back soon or <a href="/contact" class="underline text-yellow-400 hover:text-yellow-300">reach out</a> if you want to discuss a topic.</p>
-    </div>
+    <article class="rounded-2xl border border-primary/15 bg-surface-card/50 p-8 md:p-10">
+      <header class="mb-8">
+        <p class="text-xs font-mono text-primary/60 tracking-[0.3em] uppercase mb-3">// BUILD STORY</p>
+        <h1 class="text-3xl md:text-4xl font-bold text-white leading-tight">
+          How I built this portfolio with AI, and the part that lied to me
+        </h1>
+        <p class="post-meta mt-4">Parth Chawla &middot; {{ now.year if now else '2026' }} &middot; 4 min read</p>
+      </header>
 
-    <!-- Filter row -->
-    <div class="flex flex-wrap gap-2 mb-8" id="blog-filters">
-      <button class="filter-btn active" data-cat="all" onclick="filterPosts('all', this)">[ ALL ]</button>
-      <button class="filter-btn" data-cat="stats" onclick="filterPosts('stats', this)">[ STATISTICAL MODELING ]</button>
-      <button class="filter-btn" data-cat="ai" onclick="filterPosts('ai', this)">[ AI ENGINEERING ]</button>
-      <button class="filter-btn" data-cat="oss" onclick="filterPosts('oss', this)">[ OPEN SOURCE ]</button>
-    </div>
+      <div class="prose-case text-base">
+        <p>
+          I started with a site that looked finished and proved nothing. It had three projects,
+          a typewriter animation on my name, and a headline asking for an internship. I had spent
+          weeks on the wrong thing: I was decorating a page instead of making a claim.
+        </p>
 
-    <style>
-      .filter-btn { padding: 5px 16px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; cursor: pointer; transition: all 0.2s; border: 1px solid rgba(56,218,250,0.25); letter-spacing: 0.05em; background: transparent; color: rgba(56,218,250,0.6); }
-      .filter-btn.active { background: #38dafa; color: #0a1628; border-color: #38dafa; box-shadow: 0 0 12px rgba(56,218,250,0.35); }
-      .filter-btn:not(.active):hover { background: rgba(56,218,250,0.1); color: #38dafa; }
-    </style>
+        <p>
+          So I did the unglamorous part first. I wrote one sentence I could actually defend —
+          that I build AI systems which keep working on messy data because I measure them — and
+          then threw away the three projects that could not support it. What replaced them is
+          five cases pulled out of my own repositories, each one honest about what broke.
+        </p>
 
-    <!-- Post grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="posts-grid">
+        <p>
+          <strong>What AI did that I could not have done alone</strong> was the code. Every
+          template, the styling, the contact endpoint with its validation and rate limiting, the
+          twenty-six tests behind it. I wrote none of that by hand, and I could not have shipped
+          it in the time I had. What that bought me was time to spend on the parts that are
+          actually mine: writing the eval set, deciding what to leave out, and choosing to
+          publish the embarrassing findings instead of quietly dropping them.
+        </p>
 
-      <a href="#" class="post-card relative" data-cat="stats">
-        <div class="wip-overlay"><span class="text-xs font-mono text-primary/80 border border-primary/30 px-3 py-1 rounded-full">Draft in progress</span></div>
-        <div class="post-meta">
-          <span class="post-cat" style="background:rgba(56,218,250,0.1);color:#38dafa;border:1px solid rgba(56,218,250,0.2);">STATISTICAL MODELING</span>
-          <span class="text-xs text-gray-600 font-mono">Coming Soon</span>
-        </div>
-        <h2 class="text-lg font-bold text-white leading-snug">Time Series Forecasting: From ARIMA to Transformer-based Models</h2>
-        <p class="text-sm text-gray-500 leading-relaxed">A practical walk-through comparing classical and deep learning approaches for time series forecasting on real-world datasets.</p>
-        <div class="flex flex-wrap gap-2 mt-auto pt-2">
-          <span class="tag-badge">Python</span><span class="tag-badge">Statistics</span><span class="tag-badge">Time Series</span>
-        </div>
-      </a>
+        <p>
+          <strong>And here is the part I keep thinking about.</strong> My contact form lied to me.
+          It said "Message sent!" and dropped every message on the floor. There was no server
+          call at all, just a timer. A stranger would have trusted it. I only found it because
+          I tried to break my own site on purpose, which is now a page on this site
+          (<a href="/reliability" class="text-primary hover:underline">/reliability</a>) instead of
+          a shrug.
+        </p>
 
-      <a href="#" class="post-card relative" data-cat="ai">
-        <div class="wip-overlay"><span class="text-xs font-mono text-primary/80 border border-primary/30 px-3 py-1 rounded-full">Draft in progress</span></div>
-        <div class="post-meta">
-          <span class="post-cat" style="background:rgba(139,92,246,0.1);color:#a78bfa;border:1px solid rgba(139,92,246,0.2);">AI ENGINEERING</span>
-          <span class="text-xs text-gray-600 font-mono">Coming Soon</span>
-        </div>
-        <h2 class="text-lg font-bold text-white leading-snug">Building Agentic Pipelines with LangChain: Lessons from GitScout</h2>
-        <p class="text-sm text-gray-500 leading-relaxed">How I designed an autonomous repository analysis agent — architecture decisions, tooling, and what I'd do differently.</p>
-        <div class="flex flex-wrap gap-2 mt-auto pt-2">
-          <span class="tag-badge">LangChain</span><span class="tag-badge">Agentic AI</span><span class="tag-badge">LLMs</span>
-        </div>
-      </a>
+        <p>
+          The lesson was not "AI is unreliable." It was that a plausible-looking demo path is the
+          exact thing an AI will happily build for you, and the only defence is trying to break
+          your own work before someone else does.
+        </p>
 
-      <a href="#" class="post-card relative" data-cat="oss">
-        <div class="wip-overlay"><span class="text-xs font-mono text-primary/80 border border-primary/30 px-3 py-1 rounded-full">Draft in progress</span></div>
-        <div class="post-meta">
-          <span class="post-cat" style="background:rgba(52,211,153,0.1);color:#34d399;border:1px solid rgba(52,211,153,0.2);">OPEN SOURCE</span>
-          <span class="text-xs text-gray-600 font-mono">Coming Soon</span>
-        </div>
-        <h2 class="text-lg font-bold text-white leading-snug">My Experience with SWOC &amp; ECWoC: Finding the Right Contributions</h2>
-        <p class="text-sm text-gray-500 leading-relaxed">A breakdown of how I navigated two open-source winter programs, what I shipped, and tips for first-time contributors.</p>
-        <div class="flex flex-wrap gap-2 mt-auto pt-2">
-          <span class="tag-badge">Open Source</span><span class="tag-badge">SWOC</span><span class="tag-badge">ECWoC</span>
-        </div>
-      </a>
+        <p>
+          Next: record the classifier's live eval score, then score urgency too, because right now
+          it returns a priority nobody verifies.
+        </p>
+      </div>
 
-      <a href="#" class="post-card relative" data-cat="stats">
-        <div class="wip-overlay"><span class="text-xs font-mono text-primary/80 border border-primary/30 px-3 py-1 rounded-full">Draft in progress</span></div>
-        <div class="post-meta">
-          <span class="post-cat" style="background:rgba(56,218,250,0.1);color:#38dafa;border:1px solid rgba(56,218,250,0.2);">STATISTICAL MODELING</span>
-          <span class="text-xs text-gray-600 font-mono">Coming Soon</span>
-        </div>
-        <h2 class="text-lg font-bold text-white leading-snug">NLP for ATS Optimization: How Resume Scoring Actually Works</h2>
-        <p class="text-sm text-gray-500 leading-relaxed">A deep dive into keyword extraction, semantic similarity, and the NLP techniques powering modern ATS resume scanners.</p>
-        <div class="flex flex-wrap gap-2 mt-auto pt-2">
-          <span class="tag-badge">NLP</span><span class="tag-badge">Python</span><span class="tag-badge">Analytics</span>
-        </div>
-      </a>
+      <div class="mt-8 pt-6 border-t border-white/5">
+        <a href="/projects" class="text-primary font-mono text-sm hover:underline">See the five cases →</a>
+      </div>
+    </article>
 
-    </div>
+    <!-- The keep-building habit, in public -->
+    <section class="mt-10 rounded-2xl border border-white/5 bg-surface-card/40 p-8">
+      <p class="beat-label mb-3">// what happens next</p>
+      <div class="prose-case">
+        <p>
+          The next piece of real work to land here is
+          <strong>the classifier scoring urgency, not just category</strong>, with a second eval
+          pass that catches a right-team-wrong-priority answer. It goes up as a new case on this
+          site the day it ships, written the same three-beat way, using the same layout.
+        </p>
+        <p>
+          Adding a case is now a thirty-minute job: one entry in a single file, and the index,
+          the case page and the links all pick it up.
+        </p>
+      </div>
+    </section>
+
   </div>
 </div>
-{% endblock %}
-
-{% block extra_scripts %}
-<script>
-function filterPosts(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('#posts-grid .post-card').forEach(card => {
-    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
-  });
-}
-</script>
 {% endblock %}
